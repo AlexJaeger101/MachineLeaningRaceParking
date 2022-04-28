@@ -1,0 +1,29 @@
+{
+    "Seek": {
+        "checkpoints": [
+            {
+                "steps": 499968,
+                "file_path": "results\\moveToGoal3\\Seek\\Seek-499968.nn",
+                "reward": 1.0,
+                "creation_time": 1651099298.2230387
+            },
+            {
+                "steps": 500175,
+                "file_path": "results\\moveToGoal3\\Seek\\Seek-500175.nn",
+                "reward": 1.0,
+                "creation_time": 1651099298.381183
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500175,
+            "file_path": "results\\moveToGoal3\\Seek.nn",
+            "reward": 1.0,
+            "creation_time": 1651099298.381183
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.20.0",
+        "tensorflow_version": "2.7.1"
+    }
+}

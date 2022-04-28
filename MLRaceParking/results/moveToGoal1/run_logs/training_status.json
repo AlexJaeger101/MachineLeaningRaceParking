@@ -1,0 +1,23 @@
+{
+    "Seek": {
+        "checkpoints": [
+            {
+                "steps": 4000,
+                "file_path": "results\\moveToGoal1\\Seek\\Seek-4000.nn",
+                "reward": 0.0,
+                "creation_time": 1651097944.3573158
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4000,
+            "file_path": "results\\moveToGoal1\\Seek.nn",
+            "reward": 0.0,
+            "creation_time": 1651097944.3573158
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.20.0",
+        "tensorflow_version": "2.7.1"
+    }
+}

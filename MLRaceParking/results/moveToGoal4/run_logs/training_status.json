@@ -1,0 +1,23 @@
+{
+    "Seek": {
+        "checkpoints": [
+            {
+                "steps": 409448,
+                "file_path": "results\\moveToGoal4\\Seek\\Seek-409448.nn",
+                "reward": null,
+                "creation_time": 1651122176.438289
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 409448,
+            "file_path": "results\\moveToGoal4\\Seek.nn",
+            "reward": null,
+            "creation_time": 1651122176.438289
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.20.0",
+        "tensorflow_version": "2.7.1"
+    }
+}

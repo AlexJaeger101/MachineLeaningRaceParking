@@ -1,0 +1,3 @@
+model_checkpoint_path: "Seek-500014.ckpt"
+all_model_checkpoint_paths: "Seek-499984.ckpt"
+all_model_checkpoint_paths: "Seek-500014.ckpt"
