@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 9291531}
   m_Layer: 0
   m_Name: FallTriggerHolder
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,6 +302,7 @@ Transform:
   m_LocalPosition: {x: -11.8843565, y: -25.20236, z: 25.11686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 995054514}
   - {fileID: 429575338}
   - {fileID: 1065784241}
   - {fileID: 1063953479}
@@ -1355,7 +1356,7 @@ Transform:
   m_Children:
   - {fileID: 859189571}
   m_Father: {fileID: 117382222}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457946015
 GameObject:
@@ -2281,6 +2282,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7451979304208603428, guid: 749d9850cfa73914f87f1f8a08095a13, type: 3}
   m_PrefabInstance: {fileID: 1161959769}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &995054513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995054514}
+  m_Layer: 0
+  m_Name: StartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995054514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995054513}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -7.518, y: 2.246, z: 4.816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 117382222}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &995947655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2686,7 +2717,7 @@ Transform:
   m_Children:
   - {fileID: 402347655}
   m_Father: {fileID: 117382222}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065784240
 GameObject:
@@ -2734,7 +2765,7 @@ Transform:
   - {fileID: 1833326015}
   - {fileID: 138976995}
   m_Father: {fileID: 117382222}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1079817733
 PrefabInstance:
@@ -4245,6 +4276,7 @@ GameObject:
   - component: {fileID: 1516888431}
   - component: {fileID: 1516888430}
   - component: {fileID: 1516888429}
+  - component: {fileID: 1516888432}
   m_Layer: 0
   m_Name: CarAgent
   m_TagString: Car
@@ -4269,7 +4301,7 @@ MonoBehaviour:
   mMaxSpeed: 0
   mTurnSpeed: 100
   mGravity: 100
-  mIsAIControlled: 0
+  mIsAIControlled: 1
   mGroundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -4338,8 +4370,8 @@ MonoBehaviour:
   MaxStep: 1200
   mParkingSpot: {fileID: 1063953479}
   mCar: {fileID: 1516888424}
-  mCheckpointManager: {fileID: 0}
-  mStartPoint: {fileID: 0}
+  mCheckpointManager: {fileID: 429575337}
+  mStartPoint: {fileID: 995054514}
 --- !u!114 &1516888429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4398,15 +4430,30 @@ MonoBehaviour:
   m_BrainParameters:
     VectorObservationSize: 1
     NumStackedVectorObservations: 1
-    VectorActionSize: 01000000
+    VectorActionSize: 02000000
     VectorActionDescriptions: []
-    VectorActionSpaceType: 0
+    VectorActionSpaceType: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
-  m_BehaviorName: My Behavior
+  m_BehaviorType: 1
+  m_BehaviorName: Drive
   TeamId: 0
   m_UseChildSensors: 1
+--- !u!114 &1516888432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516888423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 1
+  DemonstrationName: DriveDemo
+  DemonstrationDirectory: Demos
 --- !u!1001 &1536779015
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -99,14 +99,27 @@ public class DriveAgent : Agent
 
     public override void Heuristic(float[] actionsOut)
     {
-        float[] continuousActions = actionsOut;
-        continuousActions[0] = Input.GetAxisRaw("Horizontal");
-        continuousActions[1] = Input.GetAxisRaw("Vertical");
+        float[] continueousAction = actionsOut;
+
+        int accelInput = 0;
+        int turnInput = 0;
+        
+        //Forward and Backwards
+        if (Input.GetKey(KeyCode.UpArrow)) { accelInput = 1; }
+        if (Input.GetKey(KeyCode.DownArrow)) { accelInput = 2; }
+
+        //Right and Left
+        if (Input.GetKey(KeyCode.RightArrow)) { turnInput = 1; }
+        if (Input.GetKey(KeyCode.LeftArrow)) { turnInput = 2; }
+
+        continueousAction[0] = accelInput;
+        continueousAction[1] = turnInput;
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("FallTrigger"))
         {
             SetReward(-5.0f);
             EndEpisode();
@@ -117,7 +130,8 @@ public class DriveAgent : Agent
     {
         if (other.CompareTag("ParkingSpot"))
         {
-            SetReward(3.0f);
+            SetReward(5.0f);
+            EndEpisode();
         }
     }
 }

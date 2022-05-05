@@ -19,6 +19,7 @@ public class CheckpointManager : MonoBehaviour
     void Awake()
     {
         Transform checkpointTrans = transform.Find("CheckpointHolder");
+        mCheckpointList = new List<Checkpoint>();
         foreach(Transform checkpoint in checkpointTrans)
         {
             Checkpoint temp = checkpoint.GetComponent<Checkpoint>();
