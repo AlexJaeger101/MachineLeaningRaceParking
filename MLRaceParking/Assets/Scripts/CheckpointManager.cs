@@ -5,6 +5,11 @@ using System;
 
 public class CheckpointManager : MonoBehaviour
 {
+    public event EventHandler mCorrectCheckpointEvent;
+    public event EventHandler mWrongCheckpointEvent;
+
+
+    [Header("Checkpoint Data")]
     private List<Checkpoint> mCheckpointList;
     private List<int> mNextCheckpointIndexList;
     public List<Transform> mCarList;
@@ -36,17 +41,33 @@ public class CheckpointManager : MonoBehaviour
         //Check if we hit the worng checkpoint
         if (mCheckpointList.IndexOf(hitCheckpoint) != index)
         {
-            Debug.Log("Wrong Checkpoint!!!! :(");
+            mWrongCheckpointEvent?.Invoke(this, EventArgs.Empty);
             return;
         }
 
-        Debug.Log("Hit correct checkpoint!!! :)");
+        //Handle going through correct checkpoint
+        mCorrectCheckpointEvent?.Invoke(this, EventArgs.Empty);
 
         ++mNextCheckpointIndexList[mCarList.IndexOf(car)];
         if (mShouldLap && (index > (mCheckpointList.Count - 1)))
         {
             mNextCheckpointIndexList[mCarList.IndexOf(car)] = 0;
         }
+    }
+
+    public void ResetCheckpoints()
+    {
+        mNextCheckpointIndexList.Clear();
+        foreach (Transform car in mCarList)
+        {
+            mNextCheckpointIndexList.Add(0);
+        }
+    }
+
+    public Transform GetNextCheckpointTranfrom(Transform car)
+    {
+        int index = mNextCheckpointIndexList[mCarList.IndexOf(car)];
+        return mCheckpointList[index].transform;
     }
 
 }

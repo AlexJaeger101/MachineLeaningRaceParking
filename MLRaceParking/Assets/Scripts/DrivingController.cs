@@ -85,4 +85,13 @@ public class DrivingController : MonoBehaviour
         mForwardInput = forward;
         mTurnInput = turn;
     }
+
+    public void StopCar()
+    {
+        if (mRB.velocity.magnitude < .01)
+        {
+            mRB.velocity = Vector3.zero;
+            mRB.angularVelocity = Vector3.zero;
+        }
+    }
 }
